@@ -21,11 +21,13 @@ services:
     image: senacortutorials/registry:local
     ports:
       - "8761:8761"
+    mem_limit: 1073741824
 
   config:
     image: senacortutorials/config:local
     ports:
       - "8888:8888"
+    mem_limit: 1073741824
 
 
   demo:
@@ -37,7 +39,7 @@ services:
         - demodb
         - registry
         - config
-
+    mem_limit: 1073741824
 
   accounting:
     image: senacortutorials/accounting:local
@@ -48,4 +50,5 @@ services:
         - accountingdb
         - registry
         - config
+    mem_limit: 1073741824
 
