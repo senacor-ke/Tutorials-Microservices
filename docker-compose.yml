@@ -3,70 +3,49 @@ version: '2'
 services:
   demodb:
     image: mysql
-    container_name: demodb
     environment:
       - MYSQL_ROOT_PASSWORD=mysql
       - MYSQL_DATABASE=demodb
     ports:
       - "3306:3306"
-    networks:
-        - demonet
 
   accountingdb:
     image: mysql
-    container_name: accountingdb
     environment:
       - MYSQL_ROOT_PASSWORD=mysql
       - MYSQL_DATABASE=accountingdb
     ports:
       - "3305:3306"
-    networks:
-        - demonet
 
   registry:
     image: senacortutorials/registry:local
-    container_name: registry
     ports:
       - "8761:8761"
-    networks:
-        - demonet
 
   config:
     image: senacortutorials/config:local
-    container_name: config
     ports:
       - "8888:8888"
-    networks:
-        - demonet
 
 
   demo:
     image: senacortutorials/demo:local
-    container_name: demo
     ports:
       - "8081:8081"
       - "7081:7081"
-    depends_on:
+    links:
         - demodb
         - registry
         - config
-    networks:
-        - demonet
+
 
   accounting:
     image: senacortutorials/accounting:local
-    container_name: accounting
     ports:
       - "8082:8082"
       - "7082:7082"
-    depends_on:
+    links:
         - accountingdb
         - registry
         - config
-        - demo
-    networks:
-        - demonet
 
-networks:
-  demonet:
-  

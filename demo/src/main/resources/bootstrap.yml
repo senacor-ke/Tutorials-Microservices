@@ -9,3 +9,8 @@ spring:
       # the label defines the branch within the config-server repo
       # (for local setup you don't need a label because you are not on a specific branch)
       label: Stage-09-DockerHub
+      failFast: true
+      retry:
+        initialInterval: 10000
+        maxInterval: 10000
+        maxAttempts: 10
