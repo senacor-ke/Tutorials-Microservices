@@ -21,7 +21,6 @@ services:
       - "8081:8081"
       - "7081:7081"
     links:
-        - demodb
         - registry
         - config
     mem_limit: 1073741824
@@ -32,7 +31,6 @@ services:
       - "8082:8082"
       - "7082:7082"
     links:
-        - accountingdb
         - registry
         - config
     mem_limit: 1073741824
