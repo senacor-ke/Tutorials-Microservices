@@ -1,11 +1,12 @@
 version: '2'
 
 services:
-  demodb:
+
+  customerdb:
     image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=mysql
-      - MYSQL_DATABASE=demodb
+      - MYSQL_DATABASE=customerdb
     ports:
       - "3306:3306"
 
@@ -29,14 +30,13 @@ services:
       - "8888:8888"
     mem_limit: 1073741824
 
-
-  demo:
-    image: senacortutorials/demo:stage-10
+  customer:
+    image: senacortutorials/customer:stage-10
     ports:
       - "8081:8081"
       - "7081:7081"
     links:
-        - demodb
+        - customerdb
         - registry
         - config
     mem_limit: 1073741824
