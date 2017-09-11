@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: 'jdbc:mysql://customerdb.cf6zppuipish.us-west-2.rds.amazonaws.com:3306/customerdb'
+    url: 'jdbc:mysql://52.35.177.255:3306/customerdb'
     username: 'root'
     password: 'mysqlmysql'
     driver-class-name: 'com.mysql.jdbc.Driver'
@@ -33,6 +33,6 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://registry:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://34.210.48.188:8761/eureka}
   instance:
     preferIpAddress: true
